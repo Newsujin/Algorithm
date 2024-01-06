@@ -9,13 +9,13 @@ def solution(genres, plays):
     for genre in dict_song:
         dict_song[genre] = sorted(dict_song[genre], key=lambda x: (-x[0], x[1]))
 
-    # 누적 재생 횟수를 기준으로 장르를 내림차순으로 정렬
+    # 누적 재생 횟수를 기준으로 장르를 내림차순으로 정렬하고 최대 두 개의 장르 선택
     sorted_genres = sorted(dict_song.keys(), key=lambda x: sum([song[0] for song in dict_song[x]]), reverse=True)
-    # sorted_genres = sorted(dict_song.keys(), key=lambda x: sum([song[0] for song in dict_song[x]]), reverse=True)
 
     answer = []
 
     # 선택된 장르에 대해 가장 많이 재생된 두 개의 노래 선택
     for genre in sorted_genres:
         answer.extend([song[1] for song in dict_song[genre][:2]])
+
     return answer
