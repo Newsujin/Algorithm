@@ -2,18 +2,13 @@ from itertools import permutations
 
 def solution(k, dungeons):
     answer = 0
-    
-    dun_len = len(dungeons)
-    
-    for permute in permutations(dungeons, dun_len):
-        hp = k
+    for permute in permutations(dungeons, len(dungeons)):
+        cur_k = k
         cnt = 0
-        for dg in permute:
-            if hp >= dg[0]:
-                hp -= dg[1]
+        for need_k, spend_k in permute:
+            if cur_k >= need_k:
+                cur_k -= spend_k
                 cnt += 1
             if cnt > answer:
                 answer = cnt
     return answer
-
-print(solution(80, [[80,20],[50,40],[30,10]]))
