@@ -19,7 +19,10 @@ for i in range(r):
             visited[i][j] = 1
             hedgehog_q.append((j, i))
 
+# 물과 고슴도치의 동시 이동을 위해 hedgehog_q 존재할 동안 반복
 while hedgehog_q:
+    cnt += 1
+    # 물 확장
     cur = len(water_q)
     for _ in range(cur):
         x, y = water_q.popleft()
@@ -28,7 +31,7 @@ while hedgehog_q:
             if 0 <= nx < c and 0 <= ny < r and map[ny][nx] == '.':
                 water_q.append((nx, ny))
                 map[ny][nx] = '*'
-    cnt += 1
+    # 고슴도치 이동
     cur = len(hedgehog_q)
     for _ in range(cur):
         x, y = hedgehog_q.popleft()
