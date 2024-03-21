@@ -33,5 +33,4 @@ for i in range(m):
 
 empty_area.sort()
 print(len(empty_area))
-for area in empty_area:
-    print(area, end=' ')
+print(*empty_area)
