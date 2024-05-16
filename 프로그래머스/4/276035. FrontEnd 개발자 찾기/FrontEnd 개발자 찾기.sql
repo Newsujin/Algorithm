@@ -4,6 +4,5 @@ WHERE
     SKILL_CODE & (
         SELECT SUM(CODE)
         FROM SKILLCODES
-        WHERE CATEGORY = 'Front End'
-    ) != 0
+        WHERE CATEGORY = 'Front End') != 0
 ORDER BY ID
