@@ -1,13 +1,13 @@
 def solution(arr1, arr2):
-    rows_arr1 = len(arr1)
-    cols_arr2 = len(arr2[0])
-    common_dim = len(arr2)
-    
-    result = [[0] * cols_arr2 for _ in range(rows_arr1)]
-    
-    for i in range(rows_arr1):
-        for j in range(cols_arr2):
-            for k in range(common_dim):
-                result[i][j] += arr1[i][k] * arr2[k][j]
-    
-    return result
+    arr1_row = len(arr1)
+    arr2_col = len(arr2[0])
+    common_len = len(arr2)
+
+    res = [[0] * arr2_col for _ in range(arr1_row)]
+
+    for i in range(arr1_row):
+        for j in range(arr2_col):
+            for k in range(common_len):
+                res[i][j] += arr1[i][k] * arr2[k][j]
+
+    return res
