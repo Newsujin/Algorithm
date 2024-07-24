@@ -10,6 +10,4 @@ def solution(n):
                 for j in range(i - 4, -1, -2):
                     dp[i] += dp[j] * 2
                 dp[i] = dp[i] % mod
-            else:
-                dp[i] = 0
     return dp[n]
