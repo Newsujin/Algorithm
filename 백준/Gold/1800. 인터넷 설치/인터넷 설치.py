@@ -1,7 +1,5 @@
 import sys, heapq
 
-INF = float('INF')
-
 def dijkstra(base, n, k, edges):
     q = []
     heapq.heappush(q, (0, 1))
@@ -24,7 +22,6 @@ def dijkstra(base, n, k, edges):
     return dist[n] <= k
 
 
-
 def binary_search(n, p, k, edges):
     left, right = 0, 1000000
     res = -1
@@ -40,6 +37,7 @@ def binary_search(n, p, k, edges):
     return res
 
 
+INF = float('INF')
 n, p, k = map(int, sys.stdin.readline().split())
 edges = [[] for _ in range(n + 1)]
 for _ in range(p):
