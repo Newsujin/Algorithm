@@ -1,16 +1,12 @@
 import sys
 
-board = []
+max_list = []
 for i in range(9):
-    board.append(list(map(int, sys.stdin.readline().split())))
+    row = list(map(int, sys.stdin.readline().split()))
+    max_value = max(row)
+    j = row.index(max_value)
+    max_list.append([max_value, i, j])
 
-max_value = -1
-row, col = 0, 0
-for i in range(9):
-    for j in range(9):
-        if board[i][j] > max_value:
-            max_value = board[i][j]
-            row, col = i, j
-
-print(max_value)
-print(row + 1, col + 1)
+val, r, c = max(max_list, key=lambda x:x[0])
+print(val)
+print(r + 1, c + 1)
