@@ -1,7 +1,8 @@
 def solution(nums):
-    answer = set(nums)
-    n = len(answer)
-    if (n < len(nums) / 2):
-        return (n)
-    else:
-        return len(nums) / 2
+    hashDict = {}
+    for n in nums:
+        hashDict[hash(n)] = n
+    
+    hashLen = len(hashDict)
+    numsLen = len(nums) // 2
+    return (hashLen if hashLen < numsLen else numsLen)
