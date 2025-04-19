@@ -1,14 +1,17 @@
-def dfs(visited, computers, node):
-	visited[node] = True
-	for neighbor in range(len(computers[node])):
-		if not visited[neighbor] and computers[node][neighbor] == 1:
-			dfs(visited, computers, neighbor)
+def dfs(computers, visited, start):
+    visited[start] = True
+    for i in range(len(computers)):
+        if not visited[i] and computers[start][i]:
+            dfs(computers, visited, i)
+
 
 def solution(n, computers):
-	visited = [False] * n
-	answer = 0
-	for i in range(n):
-		if not visited[i]:
-			dfs(visited, computers, i)
-			answer += 1
-	return answer
+    visited = [False] * len(computers)
+    network_cnt = 0
+    
+    for i in range(len(computers)):
+        if not visited[i]:
+            dfs(computers, visited, i)
+            network_cnt += 1
+
+    return network_cnt
