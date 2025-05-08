@@ -1,10 +1,10 @@
 # [level 2] 더 맵게 - 42626 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42626) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/42626?language=cpp) 
 
 ### 성능 요약
 
-메모리: 51.7 MB, 시간: 1545.34 ms
+메모리: 37.1 MB, 시간: 205.35 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 02월 29일 17:07:17
+2025년 05월 09일 01:12:10
 
 ### 문제 설명
 
