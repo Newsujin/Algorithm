@@ -1,13 +1,15 @@
+import math
+
 n = int(input())
-data = list(map(int, input().split()))
-count = 0
+nums = map(int, input().split())
 
-for x in data:
-  for i in range(2, x+1):
-    if x % i == 0:
-      if x == i:
-        count += 1
-      
-      break
+cnt = 0
+for num in nums:
+    if num >= 2:
+        for i in range(2, int(math.sqrt(num) + 1)):
+            if num % i == 0:
+                break
+        else:
+            cnt += 1
 
-print(count)
+print(cnt)
