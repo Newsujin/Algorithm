@@ -1,12 +1,13 @@
-n, m = map(int, input().split())
+x, y = map(int, input().split())
 
 def gcd(x, y):
-    while(y):
-        x, y = y, x % y
-    return x
-print(gcd(n,m))
+    if y == 0:
+        return x
+    return gcd(y, x % y)
 
-def lcm(x, y):
-    result = (x * y) // gcd(x, y)
-    return result
-print(lcm(n, m))
+def lcm(x, y, gcd):
+    return x * y // gcd
+
+gcd = gcd(x, y)
+print(gcd)
+print(lcm(max(x, y), min(x, y), gcd))
