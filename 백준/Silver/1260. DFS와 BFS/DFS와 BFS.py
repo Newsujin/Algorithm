@@ -1,31 +1,40 @@
-N,M,V = map(int,input().split())
+from collections import deque
 
-graph = [[0]*(N+1) for _ in range(N+1)]
-for i in range (M):
-    a,b = map(int,input().split())
-    graph[a][b] = graph[b][a] = 1
+n, m, v = map(int, input().split())
+graph = [[] for _ in range(n + 1)]
+visited = [False for _ in range(n + 1)]
 
-visited1 = [0]*(N+1)
-visited2 = visited1.copy()
+for _ in range(m):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
 
-def dfs(V):
-    visited1[V] = 1
-    print(V, end=' ')
-    for i in range(1, N+1):
-        if graph[V][i] == 1 and visited1[i] == 0:
-            dfs(i)
+for i in range(n + 1):
+    graph[i].sort()
 
-def bfs(V):
-    queue = [V]
-    visited2[V] = 1
-    while queue:
-        V = queue.pop(0)
-        print(V, end = ' ')
-        for i in range(1, N+1):
-            if(visited2[i] == 0 and graph[V][i] == 1):
-                queue.append(i)
-                visited2[i] = 1
+dfs_res = []
+def dfs(start):
+    visited[start] = True
+    dfs_res.append(start)
+    for next in graph[start]:
+        if not visited[next]:
+            dfs(next)
 
-dfs(V)
-print()
-bfs(V)
+bfs_res = []
+def bfs(start):
+    visited = [False for _ in range(n + 1)]
+    visited[start] = True
+    bfs_res.append(start)
+    q = deque([start])
+    while q:
+        now = q.popleft()
+        for next in graph[now]:
+            if not visited[next]:
+                q.append(next)
+                visited[next] = True
+                bfs_res.append(next)
+
+dfs(v)
+bfs(v)
+print(*dfs_res)
+print(*bfs_res)
