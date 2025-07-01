@@ -1,11 +1,13 @@
 def solution(a, b):
     answer = 0
-    
-    if (a < b):
-        for i in range(a, b + 1):
-            answer += i
+    if a < b:
+        min_v = a
+        max_v = b
     else:
-        for i in range(b, a + 1):
-            answer += i
-        
+        min_v = b
+        max_v = a
+    
+    for i in range(min_v, max_v + 1):
+        answer += i
+
     return answer
