@@ -1,2 +1,4 @@
 def solution(phone_number):
-    return ("*" * (len(phone_number) - 4)) + phone_number[-4:]
+    p_len = len(phone_number)
+    answer = (p_len - 4) * '*' + phone_number[p_len - 4:]
+    return answer
