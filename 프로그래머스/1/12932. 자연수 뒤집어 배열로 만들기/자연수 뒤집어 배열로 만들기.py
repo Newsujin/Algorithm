@@ -1,5 +1,4 @@
 def solution(n):
-    arr = list(str(n))
-    arr.reverse()
-    
-    return list(map(int, arr))
+    n = list(str(n))
+    n.reverse()
+    return list(map(int, n))
