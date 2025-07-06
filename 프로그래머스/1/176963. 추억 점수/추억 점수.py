@@ -1,13 +1,10 @@
 def solution(name, yearning, photo):
     result = []
-    info = dict(zip(name, yearning))
-    
-    for people in photo:
-        
-        score = 0
-        
-        for person in people:
-            score += info.get(person, 0)
-        result.append(score)
+    for p in photo:
+        y_score = 0
+        for person in p:
+            if person in name:
+                y_score += yearning[name.index(person)]
+        result.append(y_score)
     
     return result
