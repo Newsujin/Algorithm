@@ -1,23 +1,22 @@
 N = int(input())
-cities = [list(map(int, input().split())) for _ in range(N)]
+arr = [list(map(int, input().split())) for _ in range(N)]
 min_cost = float('inf')
 
-def dfs(start, current, visited, cost, depth):
+def dfs(start, current, cost, visited, depth):
     global min_cost
-    if depth == N and cities[current][start] != 0:
-        cost += cities[current][start]
-        min_cost = min(min_cost, cost)
-        return
     
-    for next_city in range(N):
-        if not visited[next_city] and cities[current][next_city] != 0:
-            visited[next_city] = True
-            dfs(start, next_city, visited, cost + cities[current][next_city], depth + 1)
-            visited[next_city] = False
+    visited[current] = True
+    if depth == N and arr[current][start] != 0:
+        cost += arr[current][start]
+        min_cost = min(cost, min_cost)
+        return min_cost
     
-for i in range(N):
-    visited = [False] * N
-    visited[i] = True
-    dfs(i, i, visited, 0, 1)
+    for next in range(N):
+        if not visited[next] and arr[current][next] != 0:
+            visited[next] = True
+            dfs(start, next, cost + arr[current][next], visited, depth + 1)
+            visited[next] = False
 
+visited = [False] * N
+dfs(0, 0, 0, visited, 1)
 print(min_cost)
