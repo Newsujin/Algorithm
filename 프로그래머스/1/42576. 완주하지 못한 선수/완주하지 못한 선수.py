@@ -1,12 +1,9 @@
 def solution(participant, completion):
-    hashDict = {}
-    sumHash = 0
+    participant.sort()
+    completion.sort()
     
-    for part in participant:
-        hashDict[hash(part)] = part
-        sumHash += hash(part)
-    
-    for comp in completion:
-        sumHash -= hash(comp)
-        
-    return(hashDict[sumHash])
+    for i in range(len(completion)):
+        if participant[i] != completion[i]:
+            return participant[i]
+    else:
+        return participant[-1]
