@@ -1,9 +1,10 @@
+alpha = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+
 while True:
-    cnt=0
-    n=input()
-    if n == "#":
+    s = input()
+    if s == '#':
         break
-    for i in n:
-        if i in "aeiouAEIOU":
-            cnt+=1
+    cnt = 0
+    for al in alpha:
+        cnt += s.count(al)
     print(cnt)
